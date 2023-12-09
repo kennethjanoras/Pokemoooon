@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <!-- POKEMON CARDS -->
+  <section class="pokemon-cards-container">
+    <h2>Pokemon Cards</h2>
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Rarity</th>
+          <th>HP</th>
+          <th>Type</th>
+          <th>Attack</th>
+          <th>Description</th>
+          <th>Weakness</th>
+          <th>Number</th>
+          <th>Release</th>
+          <th>Evolution</th>
+          <th>Abilities</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for card in pokemon_cards %}
+          <tr>
+            <td>{{ card.name }}</td>
+            <td>{{ card.rarity }}</td>
+            <td>{{ card.hp }}</td>
+            <td>{{ card.card_type }}</td>
+            <td>{{ card.attack }}</td>
+            <td>{{ card.description }}</td>
+            <td>{{ card.weakness }}</td>
+            <td>{{ card.card_number }}</td>
+            <td>{{ card.release_date }}</td>
+            <td>{{ card.evolution_stage }}</td>
+            <td>{{ card.abilities }}</td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="6" style="text-align: center;">
+              <p>No Pokemon Cards Found</p>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+{% endblock %}
